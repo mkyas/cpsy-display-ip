@@ -17,7 +17,12 @@ import adafruit_ssd1306
 import socket
 
 # Define the Reset Pin
-oled_reset = digitalio.DigitalInOut(board.D4)
+oled_reset = None
+try:
+    oled_reset = digitalio.DigitalInOut(board.D4)
+except:
+    pass
+    # No reset pin
 
 # Change these
 # to the right size for your display!
