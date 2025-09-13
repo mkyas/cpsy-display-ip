@@ -16,23 +16,23 @@ from PIL import Image, ImageDraw, ImageFont
 import adafruit_ssd1306
 import socket
 
-# Define the Reset Pin
-oled_reset = None
-try:
-    oled_reset = digitalio.DigitalInOut(board.D4)
-except:
-    pass
-    # No reset pin
-
-# Change these
+# Configuration: Change these
 # to the right size for your display!
 WIDTH = 128
 HEIGHT = 64
 BORDER = 5
+RESET_PIN = board.D4
 
 # Use for I2C.
 i2c = board.I2C()  # uses board.SCL and board.SDA
-oled = adafruit_ssd1306.SSD1306_I2C(WIDTH, HEIGHT, i2c, addr=0x3C, reset=oled_reset)
+oled = None
+# Define the Reset Pin
+try:
+    oled_reset = digitalio.DigitalInOut(board.D4)
+    oled = adafruit_ssd1306.SSD1306_I2C(WIDTH, HEIGHT, i2c, addr=0x3C, reset=oled_reset)
+except:
+    # No reset pin
+    oled = adafruit_ssd1306.SSD1306_I2C(WIDTH, HEIGHT, i2c, addr=0x3C)
 
 # Clear display.
 oled.fill(0)
