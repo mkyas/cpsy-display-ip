@@ -28,8 +28,8 @@ Do the following steps on your Raspberry Pi.
    - `WorkingDirectory` must be the directory containing `display-ip.py`
    - In `ExecStart` the path to `python` must point into your virtual environment
 7. Copy the edited `display-ip.service` to `/etc/systemd/system`
-  > sudo install -m 0644 -o root -g root display-ip.service /etc/systemd/system
+   > sudo install -m 0644 -o root -g root display-ip.service /etc/systemd/system
 8. Enable the service
-  > sudo systemctl enable display-ip.service`
+   > sudo systemctl enable display-ip.service`
 9. Test by starting the service
    > sudo systemctl start display-ip.service
