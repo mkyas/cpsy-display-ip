@@ -3,8 +3,8 @@ Description=display-ip
 After=network-online.target
 
 [Service]
-Type=simple
-Restart=never
+Type=oneshot
+Restart=no
 # Edit these lines  to point to the relevant directories and files
 User=marcel
 WorkingDirectory=/home/marcel
